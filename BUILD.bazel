@@ -1,0 +1,18 @@
+# Aggregators for convenience
+filegroup(
+    name = "all_apps",
+    srcs = [
+        "//java_app:app",
+        "//cpp_app:hello",
+    ],
+    visibility = ["//visibility:public"],
+)
+
+test_suite(
+    name = "all_tests",
+    tests = [
+        "//java_app:AppTestNg",
+        "//cpp_app:hello_test",
+    ],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,20 @@
+module(name = "bzlmod_ws_dual", version = "0.1")
+
+# JVM deps via rules_jvm_external (Bzlmod)
+bazel_dep(name = "rules_jvm_external", version = "6.6")
+
+# C++ deps (BCR modules)
+bazel_dep(name = "googletest", version = "1.17.0.bcr.2")
+bazel_dep(name = "nlohmann_json", version = "3.12.0.bcr.1")
+
+# Maven/TestNG via the maven extension
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    artifacts = [
+        "org.testng:testng:7.12.0",
+    ],
+    repositories = ["https://repo1.maven.org/maven2"],
+    # After `bazel run --config=bzlmod @maven//:pin`, uncomment:
+    # lock_file = "//:maven_install.json",
+)
+use_repo(maven, "maven")
