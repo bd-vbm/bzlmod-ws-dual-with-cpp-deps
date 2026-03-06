@@ -1,3 +1,6 @@
-build --enable_bzlmod
+# Default to WORKSPACE mode. Switch with --config=bzlmod when needed.
 common --enable_bzlmod
 
+build:bzlmod --enable_bzlmod
+test:bzlmod  --enable_bzlmod
+run:bzlmod   --enable_bzlmod
