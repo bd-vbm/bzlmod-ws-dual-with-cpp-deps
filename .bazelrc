@@ -4,3 +4,7 @@ common --enable_bzlmod
 build:bzlmod --enable_bzlmod
 test:bzlmod  --enable_bzlmod
 run:bzlmod   --enable_bzlmod
+
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+
